@@ -1,0 +1,31 @@
+.base {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100vw;
+  height: 8vh;
+  position: fixed;
+  z-index: 9;
+  background-color: #15191c;
+  box-shadow: #f5f5f5 0 0 8px 0;
+  color: white;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  //width: 26vw;
+  text-decoration: none;
+  height: 50vh;
+  padding: 6vh 4vw;
+  background-color: #142D4A;
+  overflow: hidden;
+}
+
+a, button {
+  text-decoration: none;
+  color: white;
+}
+

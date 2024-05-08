@@ -9,13 +9,14 @@
 
 .container-login {
   width: 60vw;
-  height: 50vh;
+  height: 55vh;
   background-color: white;
   border-radius: 8px;
   display: flex;
   flex-direction: row;
+  overflow: hidden;
   border: 1px solid #00000094;
-  box-shadow: 5px 4px 10px 0px #00000040;
+  box-shadow: 5px 4px 10px 0 #00000040;
 }
 
 .register {
@@ -26,6 +27,12 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.register-focus {
+  width: 50vw;
 }
 
 .text-container {
@@ -46,7 +53,6 @@ span{
 }
 
 .welcome {
-
   font-size: 1.6em;
 }
 
@@ -54,7 +60,6 @@ button {
   border-radius: 10px;
   width: 130px;
   height: 40px;
-  margin-top: 10px;
   color: #FFFFFF;
   cursor: pointer;
 }
@@ -91,23 +96,66 @@ button {
   color: #00000070;
 }
 
-input {
-  background-color: #E9E9E9;
+.input-text {
   border: none;
   width: 70%;
-  height: 35px;
 }
 
-.example-form {
+.register-form {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
 }
 
-.example-full-width {
-  width: 100%;
+.displays {
+  animation: down-screen 1s forwards;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
 }
 
+.displays-login {
+  display: none;
+}
+
+.access {
+  opacity: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: translateY(-100%);
+  animation: view-login 2s forwards;
+  animation-delay: 0.9s;
+  width: 0;
+  height: 50vh;
+
+  .welcome {
+    text-align: center;
+  }
+}
+
+@keyframes down-screen {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+    display: none;
+  }
+}
+
+@keyframes view-login {
+  0% {
+    opacity: 0;
+    display: flex;
+  }
+  100% {
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    transform: translateY(0%);
+  }
+}
 
 @media (max-width: 768px) {
   .container-login {
@@ -127,6 +175,10 @@ input {
   .create-account {
     width: 100%;
     margin-bottom: 40px;
+  }
+
+  .access {
+    height: 100%;
   }
 
 }

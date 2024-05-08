@@ -6,3 +6,15 @@ html, body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-mdc-menu-content {
+  padding: 0 !important;
+}
+
+mat-icon {
+  color: white !important;
+}
+
+.mat-mdc-menu-panel {
+  max-width: 25vw !important;
+}

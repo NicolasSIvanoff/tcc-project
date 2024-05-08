@@ -1,0 +1,39 @@
+<div class="base">
+  <div class="container-header">
+    <div class="mobile-layout">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon color="basic">menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="matMenu">
+      <div>
+      <div class="options">
+        <button mat-menu-item>
+            <mat-icon>home</mat-icon>
+            Início
+        </button>
+        <button mat-menu-item>
+          <mat-icon>assignment</mat-icon>
+          <a routerLink="/about" routerLinkActive="active"> Objetivos e metas</a>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>bar_chart</mat-icon>
+          <a routerLink="/contact" routerLinkActive="active">Seu progresso</a>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>attach_money</mat-icon>
+          <a routerLink="/login" routerLinkActive="active">  Renda variável</a>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>insert_chart</mat-icon>
+          <a routerLink="/register" routerLinkActive="active">Relatórios</a>
+        </button>
+        <button mat-menu-item>
+          <mat-icon> list_alt</mat-icon>
+          <a routerLink="/login" routerLinkActive="active">Notícias</a>
+        </button>
+      </div>
+      </div>
+      </mat-menu>
+    </div>
+  </div>
+</div>

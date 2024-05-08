@@ -1,32 +1,77 @@
 <div id="main-container">
   <div class="container-login">
-    <div class="register">
-      <div class="text-container">
+    <div [class.register-focus]="classEffect" class="register">
+      <div [class.displays]="classEffect" class="text-container">
         <span class="welcome">Bem-vindo de volta!</span>
         <span>Realize seu login</span>
-        <button class="enter">ENTRAR</button>
+        <button class="enter" (click)="animateClass()">ENTRAR</button>
+      </div>
+      <div [class.displays-login]="!classEffect" class="access" >
+        <span class="welcome">Acesse sua conta!</span>
+        <mat-form-field class="input-text">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailLoginFormControl" placeholder="Ex. eee@exemplo.com">
+          @if (emailLoginFormControl.hasError('email') && !emailLoginFormControl.hasError('required')) {
+            <mat-error>Por favor, informe um email válido.</mat-error>
+          }
+          @if (emailLoginFormControl.hasError('required')) {
+            <mat-error><strong>Necessário</strong> informar seu email.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="input-text">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput [formControl]="passwordLoginFormControl" placeholder="Ex. A123456!">
+          @if (passwordLoginFormControl.hasError('password') && !passwordLoginFormControl.hasError('required')) {
+            <mat-error>Por favor, digite uma senha válida.</mat-error>
+          }
+          @if (passwordLoginFormControl.hasError('required')) {
+            <mat-error><strong>Necessário</strong> informar sua senha.</mat-error>
+          }
+        </mat-form-field>
+        <button class="enter" (click)="validateLogin()">LOGIN</button>
       </div>
     </div>
     <div class="create-account">
       <span class="text-create">Crie sua conta</span>
       <span class="data">Preencha seus dados</span>
-      <input name="name" type="text">
-      <form class="example-form">
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Please enter a valid email address</mat-error>
+      <form class="register-form">
+        <mat-form-field class="input-text">
+          <mat-label>Nome</mat-label>
+          <input type="name" matInput [formControl]="nameFormControl" placeholder="Ex. João Silva">
+          @if (nameFormControl.hasError('name') && !nameFormControl.hasError('required')) {
+            <mat-error>Por favor, digite um nome válido</mat-error>
           }
           @if (emailFormControl.hasError('required')) {
-            <mat-error>Email is <strong>required</strong></mat-error>
+            <mat-error><strong>Necessário</strong> informar seu nome.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="input-text">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. eee@exemplo.com">
+          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+            <mat-error>Por favor, informe um email válido.</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+            <mat-error><strong>Necessário</strong> informar seu email.</mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="input-text">
+          <mat-label>Senha</mat-label>
+          <input type="password" matInput [formControl]="passwordFormControl" placeholder="Ex. A123456!">
+          @if (passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')) {
+            <mat-error>Por favor, digite uma senha válida.</mat-error>
+          }
+          @if (emailFormControl.hasError('required')) {
+            <mat-error><strong>Necessário</strong> informar sua senha.</mat-error>
           }
         </mat-form-field>
       </form>
-      <input name="name" type="email">
-      <input name="name" type="password">
-      <button class="btn-create">CADASTRAR</button>
-      <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+      <button class="btn-create" (click)="validateNewUser()">CADASTRAR</button>
     </div>
   </div>
 </div>
+<app-modal [isOpen]="isOpenModal"
+           (isOpenChange)="closeModal()">
+  <h2>Login</h2>
+  <p>{{ textModal }}</p>
+</app-modal>
