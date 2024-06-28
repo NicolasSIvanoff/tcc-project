@@ -1,0 +1,42 @@
+.error-template {
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  background-color: #EDE8E3;
+
+  .container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    height: 50vh;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .not-found {
+      font-family: "Foco", sans-serif;
+      font-size: 1.5em;
+      color: #050000;
+    }
+    .back {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #142D4A;
+        cursor: pointer;
+      text-decoration: none;
+        width: 15vw;
+        height: 8vh;
+        color: #FFFFFF;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    .fa-frown,
+    .fa-ban {
+      color: #020000;
+    }
+    .fa-frown {
+      font-size: 4em;
+    }
+  }
+}

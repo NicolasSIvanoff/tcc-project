@@ -1,0 +1,191 @@
+#main-container {
+  background-color: #00000040;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-login {
+  width: 60vw;
+  height: 55vh;
+  background-color: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  border: 1px solid #00000094;
+  box-shadow: 5px 4px 10px 0 #00000040;
+}
+
+.register {
+  background-color: #142D4A;
+  width: 20vw;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  transition: height 0.5s ease;
+}
+
+.register-focus {
+  width: 50vw;
+}
+
+.text-container {
+  width: 80%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+span{
+  color: white;
+  font-size: 1em;
+  width: 70%;
+  font-family: Poppins;
+}
+
+.welcome {
+  font-size: 1.6em;
+}
+
+button {
+  border-radius: 10px;
+  width: 130px;
+  height: 40px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.enter {
+  background-color: #d9d9d93b;
+  border: 3px solid #FFFFFF;
+}
+
+.btn-create {
+  border: none;
+  background-color: #142D4A;
+}
+
+.create-account {
+  width: 70%;
+  height: 84%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.text-create {
+  font-size: 30px;
+  line-height: 45px;
+  color: #142D4A;
+}
+
+.data {
+  font-size: 18px;
+  color: #00000070;
+}
+
+.input-text {
+  border: none;
+  width: 70%;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
+.register-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.displays {
+  animation: down-screen 1s forwards;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.displays-login {
+  display: none;
+}
+
+.access {
+  opacity: 0;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: translateY(-100%);
+  animation: view-login 2s forwards;
+  animation-delay: 0.9s;
+  width: 0;
+  height: 50vh;
+
+  .welcome {
+    text-align: center;
+  }
+}
+
+@keyframes down-screen {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(100%);
+    display: none;
+  }
+}
+
+@keyframes view-login {
+  0% {
+    opacity: 0;
+    display: flex;
+  }
+  100% {
+    opacity: 1;
+    display: flex;
+    width: 100%;
+    transform: translateY(0%);
+  }
+}
+
+@media (max-width: 768px) {
+  .container-login {
+    width: 90vw;
+    height: 100vh;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .register {
+    width: 100%;
+  }
+
+  .create-account {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  .access {
+    height: 100%;
+  }
+
+}
