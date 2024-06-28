@@ -1,0 +1,40 @@
+.selected, .option  {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.letter {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: #eee;
+  color: #000000;
+}
+
+.text {
+  text-align: left;
+  flex: 1;
+}
+
+.option {
+  background-color: #fff;
+  color: #000000;
+}
+
+.option:hover {
+  background-color: #a6b4c9;
+}
+
+.selected {
+  background-color: #142D4A;
+  color: #FFFFFF;
+}

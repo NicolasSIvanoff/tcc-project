@@ -2,19 +2,44 @@ html, body {
   width: 100%;
   height: 100%;
   margin: 0;
+  background-color: #EDE8E3;
 }
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .mat-mdc-menu-content {
   padding: 0 !important;
 }
 
-mat-icon {
-  color: white !important;
-}
-
 .mat-mdc-menu-panel {
   max-width: 25vw !important;
+  overflow: hidden !important;
+  min-width: 170px !important;
+}
+
+.cdk-overlay-container, .cdk-global-overlay-wrapper {
+  width: 16% !important;
+  overflow: hidden !important;
+  min-width: 181px;
+}
+
+.cdk-overlay-pane {
+  top: 0 !important;
+}
+
+.progress-bar, .mdc-linear-progress__bar-inner {
+  border-radius: 50px;
+  border-color: #142D4A !important;
+}
+
+.mdc-linear-progress__buffer-bar {
+  border-radius: 5px;
+}
+
+.mdc-linear-progress__bar, .mdc-linear-progress__buffer {
+  height: 10px !important;
+}
+
+.mdc-linear-progress__bar-inner {
+  border-top-width: 10px !important;
 }

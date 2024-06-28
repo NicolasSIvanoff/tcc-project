@@ -1,7 +1,15 @@
-<app-header></app-header>
 <div id="home-base">
   <div class="home-content">
-  <span>Bem-vindo ao Futuro financeiro!</span>
-  <span>Que tal aprender mais sobre o mundo dos investimentos de uma forma amigável? :) </span>
- </div>
+    <div class="welcome">
+      <span class="initial-text">Bem-vindo ao Futuro financeiro!</span>
+      <span>O objetivo desta plataforma é te ensinar conceitos do mundo dos investimentos de uma forma descomplicada. </span>
+    </div>
+    <div class="container">
+      <span class="recommend"> Que tal aprender sobre:</span>
+      <div class="container-cards">
+      <app-card *ngFor="let data of topics" [contentData]="data"></app-card>
+      </div>
+      <button class="btn-list" (click)="redirectForTopics()">Listar todos os tópicos</button>
+    </div>
+  </div>
 </div>

@@ -1,0 +1,7 @@
+<div [ngClass]=" isSelected ? 'selected': 'option' " (click)="optionSelected(letter)">
+  <div class="letter">
+    <mat-icon *ngIf="isSelected">done</mat-icon>
+    <span *ngIf="!isSelected">{{ letter }}</span>
+  </div>
+  <div class="text">{{ question }}</div>
+</div>

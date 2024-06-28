@@ -8,70 +8,62 @@
       </div>
       <div [class.displays-login]="!classEffect" class="access" >
         <span class="welcome">Acesse sua conta!</span>
+        <form [formGroup]="formLogin" class="login-form">
         <mat-form-field class="input-text">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailLoginFormControl" placeholder="Ex. eee@exemplo.com">
-          @if (emailLoginFormControl.hasError('email') && !emailLoginFormControl.hasError('required')) {
-            <mat-error>Por favor, informe um email válido.</mat-error>
-          }
-          @if (emailLoginFormControl.hasError('required')) {
-            <mat-error><strong>Necessário</strong> informar seu email.</mat-error>
-          }
+          <input type="email" matInput formControlName="email" placeholder="Ex. eee@exemplo.com">
+            <mat-error *ngIf="formLogin.get('email')?.hasError('email') && !formLogin.get('email')?.hasError('required')">
+              Por favor, informe um email válido.
+            </mat-error>
+            <mat-error *ngIf="formLogin.get('email')?.hasError('required')">
+              <strong>Necessário</strong> informar seu email.
+            </mat-error>
         </mat-form-field>
         <mat-form-field class="input-text">
           <mat-label>Senha</mat-label>
-          <input type="password" matInput [formControl]="passwordLoginFormControl" placeholder="Ex. A123456!">
-          @if (passwordLoginFormControl.hasError('password') && !passwordLoginFormControl.hasError('required')) {
-            <mat-error>Por favor, digite uma senha válida.</mat-error>
-          }
-          @if (passwordLoginFormControl.hasError('required')) {
-            <mat-error><strong>Necessário</strong> informar sua senha.</mat-error>
-          }
+          <input type="password" matInput formControlName="password" placeholder="Ex. A123456!">
+          <mat-error *ngIf="formLogin.get('password')?.hasError('required')">
+            <strong>Necessário</strong> informar sua senha.
+          </mat-error>
         </mat-form-field>
-        <button class="enter" (click)="validateLogin()">LOGIN</button>
+        </form>
+        <button type="button" class="enter" (click)="validateLogin()">LOGIN</button>
       </div>
     </div>
     <div class="create-account">
       <span class="text-create">Crie sua conta</span>
       <span class="data">Preencha seus dados</span>
-      <form class="register-form">
+      <form [formGroup]="formNewAccount" class="register-form">
         <mat-form-field class="input-text">
           <mat-label>Nome</mat-label>
-          <input type="name" matInput [formControl]="nameFormControl" placeholder="Ex. João Silva">
-          @if (nameFormControl.hasError('name') && !nameFormControl.hasError('required')) {
-            <mat-error>Por favor, digite um nome válido</mat-error>
-          }
-          @if (emailFormControl.hasError('required')) {
-            <mat-error><strong>Necessário</strong> informar seu nome.</mat-error>
-          }
+          <input type="text" matInput formControlName="name" placeholder="Ex. João Silva">
+          <mat-error *ngIf="formNewAccount.get('name')?.hasError('required')">
+            <strong>Necessário</strong> informar seu nome.
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="input-text">
           <mat-label>Email</mat-label>
-          <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. eee@exemplo.com">
-          @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
-            <mat-error>Por favor, informe um email válido.</mat-error>
-          }
-          @if (emailFormControl.hasError('required')) {
-            <mat-error><strong>Necessário</strong> informar seu email.</mat-error>
-          }
+          <input type="email" matInput formControlName="email" placeholder="Ex. eee@exemplo.com">
+          <mat-error *ngIf="formNewAccount.get('email')?.hasError('email') && !formNewAccount.get('email')?.hasError('required')">
+            Por favor, informe um email válido.
+          </mat-error>
+          <mat-error *ngIf="formNewAccount.get('email')?.hasError('required')">
+            <strong>Necessário</strong> informar seu email.
+          </mat-error>
         </mat-form-field>
         <mat-form-field class="input-text">
           <mat-label>Senha</mat-label>
-          <input type="password" matInput [formControl]="passwordFormControl" placeholder="Ex. A123456!">
-          @if (passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')) {
-            <mat-error>Por favor, digite uma senha válida.</mat-error>
-          }
-          @if (emailFormControl.hasError('required')) {
-            <mat-error><strong>Necessário</strong> informar sua senha.</mat-error>
-          }
+          <input type="password" matInput formControlName="password" placeholder="Ex. A123456!">
+          <mat-error *ngIf="formNewAccount.get('password')?.hasError('required')">
+            <strong>Necessário</strong> informar sua senha.
+          </mat-error>
         </mat-form-field>
       </form>
-      <button class="btn-create" (click)="validateNewUser()">CADASTRAR</button>
+      <button type="button" class="btn-create" (click)="validateNewUser()">CADASTRAR</button>
     </div>
   </div>
 </div>
-<app-modal [isOpen]="isOpenModal"
-           (isOpenChange)="closeModal()">
+<app-modal [isOpen]="isOpenModal" (isOpenChange)="closeModal()">
   <h2>Login</h2>
   <p>{{ textModal }}</p>
 </app-modal>

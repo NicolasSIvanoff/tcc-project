@@ -1,0 +1,13 @@
+<div id="topic-base">
+  <div class="container" *ngIf="topicDetail">
+    <p class="title">{{ topicDetail.titulo }}</p>
+    <pre class="data">{{ topicDetail.dados }}</pre>
+  </div>
+  <div class="footer">
+    <div class="source">
+      <p>Entenda de onde coletamos estes dados.</p>
+      <a href="{{ topicDetail?.fontes }}" target="_blank">Clique aqui.</a>
+    </div>
+    <button class="btn-list" (click)="goBack()">Voltar</button>
+  </div>
+</div>

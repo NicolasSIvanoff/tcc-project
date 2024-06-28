@@ -20,6 +20,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
+import { CardComponent } from './shared/card/card.component';
+import {NgOptimizedImage} from "@angular/common";
+import { TopicDetailComponent } from './components/topic-detail/topic-detail.component';
+import { ErrorComponent } from './shared/error/error.component';
+import { ListTopicsComponent } from './components/list-topics/list-topics.component';
+import { SidebarComponent } from './shared/sidebar/sidebar.component';
+import { QuizOptionComponent } from './components/quiz-option/quiz-option.component';
+import { QuizComponent } from './components/quiz/quiz.component';
+import { MatProgressBar, MatProgressBarModule } from "@angular/material/progress-bar";
 
 @NgModule({
   declarations: [
@@ -28,6 +37,13 @@ import { MatTabsModule } from '@angular/material/tabs';
     ModalComponent,
     HomeComponent,
     HeaderComponent,
+    CardComponent,
+    TopicDetailComponent,
+    ErrorComponent,
+    ListTopicsComponent,
+    SidebarComponent,
+    QuizOptionComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +61,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     HttpClientModule,
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
+    NgOptimizedImage,
+    MatProgressBarModule,
+    MatProgressBar,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

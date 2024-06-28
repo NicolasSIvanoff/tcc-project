@@ -13,11 +13,6 @@ export class LoginComponent implements OnInit {
 
  public formNewAccount!: FormGroup;
  public formLogin!: FormGroup;
- public nameFormControl = new FormControl('', [Validators.required]);
- public emailFormControl = new FormControl('', [Validators.required, Validators.email]);
- public passwordFormControl = new FormControl('', [Validators.required]);
- public emailLoginFormControl = new FormControl('', [Validators.required, Validators.email]);
- public passwordLoginFormControl = new FormControl('', [Validators.required]);
  public classEffect: boolean = false;
  public isOpenModal: boolean = false;
  public textModal!: string;
@@ -25,27 +20,23 @@ export class LoginComponent implements OnInit {
   constructor( private createUserService: CreateUserService, private loginService: LoginService ) { }
 
   ngOnInit(): void {
-    this.createFormLogin();
-    this.createFormNewAccount();
+    this.createForms();
   }
 
   public animateClass(): void {
     this.classEffect = !this.classEffect;
   }
 
-  public createFormNewAccount(): void {
-      this.formNewAccount = new FormGroup({
-        name: this.nameFormControl,
-        email: this.emailFormControl,
-        password: this.passwordFormControl
-      });
-  }
-
-  public createFormLogin(): void {
-      this.formLogin = new FormGroup({
-        email: this.emailLoginFormControl,
-        password: this.passwordLoginFormControl
-      });
+  public createForms(): void {
+    this.formNewAccount = new FormGroup({
+      name: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    });
+    this.formLogin = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required])
+    })
   }
 
   public validateLogin(): void {
@@ -56,11 +47,7 @@ export class LoginComponent implements OnInit {
     this.formNewAccount.valid ? this.createUserService.createUser(this.formNewAccount.value) : this.openModal();
   }
   public openModal(): void {
-    if ((
-      this.nameFormControl.valid &&
-      this.emailFormControl.valid &&
-      this.passwordFormControl.valid
-    ) || (this.emailLoginFormControl.valid && this.passwordLoginFormControl.valid)) {
+    if (this.formLogin.valid || this.formNewAccount.valid ) {
       this.textModal = 'Aguarde um momento! Estamos realizando seu login...'
     } else {
       this.isOpenModal = true;
@@ -71,6 +58,4 @@ export class LoginComponent implements OnInit {
   public closeModal(): void {
     this.isOpenModal = false;
   }
-
-
 }

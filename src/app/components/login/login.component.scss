@@ -101,6 +101,13 @@ button {
   width: 70%;
 }
 
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+
 .register-form {
   min-width: 150px;
   max-width: 500px;

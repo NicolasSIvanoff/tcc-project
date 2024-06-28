@@ -7,33 +7,35 @@
       <mat-menu #menu="matMenu" class="matMenu">
       <div>
       <div class="options">
-        <button mat-menu-item>
-            <mat-icon>home</mat-icon>
-            Início
+      <div class="icon-menu">
+        <mat-icon color="basic">menu</mat-icon>
+      </div>
+        <button mat-menu-item (click)="redirectTo('home')">
+          <mat-icon>home</mat-icon>
+          <span>Início</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>assignment</mat-icon>
-          <a routerLink="/about" routerLinkActive="active"> Objetivos e metas</a>
-        </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="redirectTo('contact')">
           <mat-icon>bar_chart</mat-icon>
-          <a routerLink="/contact" routerLinkActive="active">Seu progresso</a>
+          <span>Seu progresso</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon>attach_money</mat-icon>
-          <a routerLink="/login" routerLinkActive="active">  Renda variável</a>
-        </button>
-        <button mat-menu-item>
+        <button mat-menu-item (click)="redirectTo('register')">
           <mat-icon>insert_chart</mat-icon>
-          <a routerLink="/register" routerLinkActive="active">Relatórios</a>
+          <span>Relatórios</span>
         </button>
-        <button mat-menu-item>
-          <mat-icon> list_alt</mat-icon>
-          <a routerLink="/login" routerLinkActive="active">Notícias</a>
+        <button mat-menu-item (click)="redirectTo('quiz')">
+          <mat-icon>list_alt</mat-icon>
+          <span>Quiz</span>
+        </button>
+        <button id="last-button" mat-menu-item (click)="redirectTo('login')">
+          <mat-icon>exit_to_app</mat-icon>
+          <span>Sair</span>
         </button>
       </div>
       </div>
       </mat-menu>
     </div>
+  </div>
+  <div class="user">
+  <mat-icon class="user-icon">account_circle</mat-icon>
   </div>
 </div>
