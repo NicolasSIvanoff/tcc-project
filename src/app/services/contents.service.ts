@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ContentModel} from "../models/content.model";
 
@@ -7,19 +7,25 @@ import {ContentModel} from "../models/content.model";
   providedIn: 'root'
 })
 export class ContentsService {
-
   constructor(public http:HttpClient) {
   }
 
+  public createHeader(): any {
+    const token = localStorage.getItem('token');
+    return new HttpHeaders({
+     'Authorization': `Bearer ${token}`
+   });
+  }
   public getContents(): Observable<ContentModel[]>{
-   return this.http.get<ContentModel[]>('https://localhost:7203/Conteudos')
+    this.createHeader();
+   return this.http.get<ContentModel[]>('https://localhost:7184/Conteudos', {headers: this.createHeader()});
   }
 
   public getContentById(id: number): Observable<ContentModel>{
-    return this.http.get<ContentModel>(`https://localhost:7203/Conteudos/${id}`)
+    return this.http.get<ContentModel>(`https://localhost:7184/Conteudos/${id}` , {headers: this.createHeader()});
   }
 
   public getAllContents(): Observable<ContentModel[]>{
-    return this.http.get<ContentModel[]>('https://localhost:7203/Conteudos/getAll')
+    return this.http.get<ContentModel[]>('https://localhost:7184/Conteudos/getAll' , {headers: this.createHeader()});
   }
 }

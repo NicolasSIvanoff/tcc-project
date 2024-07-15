@@ -29,6 +29,8 @@ import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { QuizOptionComponent } from './components/quiz-option/quiz-option.component';
 import { QuizComponent } from './components/quiz/quiz.component';
 import { MatProgressBar, MatProgressBarModule } from "@angular/material/progress-bar";
+import { QuizFinalizationComponent } from './components/quiz-finalization/quiz-finalization.component';
+import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { MatProgressBar, MatProgressBarModule } from "@angular/material/progress
     SidebarComponent,
     QuizOptionComponent,
     QuizComponent,
+    QuizFinalizationComponent,
+    QuizDetailsComponent,
   ],
   imports: [
     BrowserModule,

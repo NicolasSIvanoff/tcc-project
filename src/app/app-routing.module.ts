@@ -6,6 +6,8 @@ import {TopicDetailComponent} from "./components/topic-detail/topic-detail.compo
 import {ErrorComponent} from "./shared/error/error.component";
 import {ListTopicsComponent} from "./components/list-topics/list-topics.component";
 import {QuizComponent} from "./components/quiz/quiz.component";
+import {QuizFinalizationComponent} from "./components/quiz-finalization/quiz-finalization.component";
+import {QuizDetailsComponent} from "./components/quiz-details/quiz-details.component";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -13,6 +15,8 @@ const routes: Routes = [
   { path: 'details/:id', component: TopicDetailComponent },
   { path: 'topics', component: ListTopicsComponent },
   { path: 'quiz', component:  QuizComponent },
+  { path: 'quizFinalization', component:  QuizFinalizationComponent },
+  { path: 'quizDetails', component:  QuizDetailsComponent },
   { path: '**', component: ErrorComponent },
 
 ];

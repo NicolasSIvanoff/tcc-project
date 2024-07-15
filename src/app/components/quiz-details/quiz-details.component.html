@@ -1,0 +1,28 @@
+<div class="quiz-details-container">
+  <div class="coin-counter">
+    <span class="coin">200</span>
+  </div>
+  <h1>Desafio Quiz</h1>
+  <div class="quiz-content">
+    <div class="question-section">
+      <h2>O que é a taxa selic?</h2>
+      <div class="answer" [class.correct]="true">
+        <span class="checkmark">✔</span> É a taxa básica de juros da economia, que influencia outras taxas de juros do país
+      </div>
+      <div class="answer" [class.wrong]="true">
+        <span class="letter">B</span> É uma taxa de juros utilizada nos empréstimos entre os bancos
+      </div>
+      <div class="answer">
+        <span class="letter">C</span> É uma taxa sobre o lucro líquido das companhias de capital aberto
+      </div>
+    </div>
+    <div class="content-section">
+      <h3>Veja este conteúdo para entender melhor sobre o assunto</h3>
+      <app-card [contentData]="contents"></app-card>
+
+<!--      <img src="assets/investimento.png" alt="O que é a taxa selic?" class="content-image">-->
+<!--      <p>O que é a taxa selic?</p>-->
+    </div>
+  </div>
+  <button class="continue-button" (click)="redirectTo()">CONTINUE</button>
+</div>

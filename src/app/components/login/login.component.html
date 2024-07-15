@@ -10,13 +10,13 @@
         <span class="welcome">Acesse sua conta!</span>
         <form [formGroup]="formLogin" class="login-form">
         <mat-form-field class="input-text">
-          <mat-label>Email</mat-label>
-          <input type="email" matInput formControlName="email" placeholder="Ex. eee@exemplo.com">
-            <mat-error *ngIf="formLogin.get('email')?.hasError('email') && !formLogin.get('email')?.hasError('required')">
-              Por favor, informe um email válido.
+          <mat-label>Nome</mat-label>
+          <input type="text" matInput formControlName="name" placeholder="João Silva">
+            <mat-error *ngIf="formLogin.get('name')?.hasError('name') && !formLogin.get('name')?.hasError('required')">
+              Por favor, informe um nome de usuário válido.
             </mat-error>
             <mat-error *ngIf="formLogin.get('email')?.hasError('required')">
-              <strong>Necessário</strong> informar seu email.
+              <strong>Necessário</strong> informar seu nome de usuário.
             </mat-error>
         </mat-form-field>
         <mat-form-field class="input-text">

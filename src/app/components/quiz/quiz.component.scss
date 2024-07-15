@@ -40,7 +40,7 @@
 .quiz-content h2 {
   font-size: 20px;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   color: #142D4A;
 }
 
@@ -52,6 +52,12 @@
   border-radius: 5px;
   cursor: pointer;
   margin-left: 20vw;
+}
+
+.continue-button:disabled {
+  background-color: gray;
+  color: #ffffff;
+  cursor: not-allowed;
 }
 
 .progress-bar {
@@ -86,3 +92,17 @@
   background-color: #FFFFFF;
   justify-content: center;
 }
+
+.exit {
+  background-color: #ffffff;
+  color: #142D4A;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 45px;
+  height: 45px;
+}
+

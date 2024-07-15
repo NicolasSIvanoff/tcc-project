@@ -1,0 +1,64 @@
+.quiz-result-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  height: 100vh;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.coin-counter {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.coin {
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+.result-image img {
+  margin: 20px 0;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.view-mistakes-button {
+  background-color: #142D4A;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 150px;
+  height: 50px;
+}
+
+.view-mistakes-button:disabled {
+  background-color: gray;
+  color: lightgray;
+  cursor: not-allowed;
+}
