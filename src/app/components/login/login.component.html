@@ -2,9 +2,14 @@
   <div class="container-login">
     <div [class.register-focus]="classEffect" class="register">
       <div [class.displays]="classEffect" class="text-container">
-        <span class="welcome">Bem-vindo de volta!</span>
-        <span>Realize seu login</span>
-        <button class="enter" (click)="animateClass()">ENTRAR</button>
+        <div class="text-welcome-back">
+          <span class="welcome">Bem-vindo de volta!</span>
+          <span>Realize seu login</span>
+        </div>
+
+        <div class="button-enter">
+          <button class="enter" (click)="animateClass()">ENTRAR</button>
+        </div>
       </div>
       <div [class.displays-login]="!classEffect" class="access" >
         <span class="welcome">Acesse sua conta!</span>
