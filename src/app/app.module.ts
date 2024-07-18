@@ -31,6 +31,11 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { MatProgressBar, MatProgressBarModule } from "@angular/material/progress-bar";
 import { WaitForLoadingComponent } from './components/login/wait-for-loading/wait-for-loading.component';
 import { BeforeQuizComponent } from './components/quiz/before-quiz/before-quiz.component';
+import { QuizFinalizationComponent } from './components/quiz-finalization/quiz-finalization.component';
+import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
+import { YourProgressComponent } from './components/your-progress/your-progress.component';
+import { ReportsComponent } from './components/reports/reports.component';
+import { SelectQuizComponent } from './components/select-quiz/select-quiz.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +53,11 @@ import { BeforeQuizComponent } from './components/quiz/before-quiz/before-quiz.c
     QuizComponent,
     WaitForLoadingComponent,
     BeforeQuizComponent,
+    QuizFinalizationComponent,
+    QuizDetailsComponent,
+    YourProgressComponent,
+    ReportsComponent,
+    SelectQuizComponent,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,11 @@ import {ErrorComponent} from "./shared/error/error.component";
 import {ListTopicsComponent} from "./components/list-topics/list-topics.component";
 import {WaitForLoadingComponent} from "./components/login/wait-for-loading/wait-for-loading.component";
 import {BeforeQuizComponent} from "./components/quiz/before-quiz/before-quiz.component";
+import {QuizFinalizationComponent} from "./components/quiz-finalization/quiz-finalization.component";
+import {QuizDetailsComponent} from "./components/quiz-details/quiz-details.component";
+import {YourProgressComponent} from "./components/your-progress/your-progress.component";
+import {ReportsComponent} from "./components/reports/reports.component";
+import {SelectQuizComponent} from "./components/select-quiz/select-quiz.component";
 import {QuizComponent} from "./components/quiz/quiz.component";
 
 const routes: Routes = [
@@ -16,8 +21,14 @@ const routes: Routes = [
   { path: 'details/:id', component: TopicDetailComponent },
   { path: 'topics', component: ListTopicsComponent },
   { path: 'startQuiz', component:  BeforeQuizComponent },
+  { path: 'selectQuiz', component:  SelectQuizComponent },
+  { path: 'quizFinalization', component:  QuizFinalizationComponent },
+  { path: 'quizDetails', component:  QuizDetailsComponent },
   { path: 'quiz', component:  QuizComponent },
-  { path: '**', component: ErrorComponent }
+  { path: 'seuProgresso', component: YourProgressComponent },
+  { path: 'relatorios', component: ReportsComponent },
+  { path: '**', component: ErrorComponent },
+
 ];
 
 @NgModule({

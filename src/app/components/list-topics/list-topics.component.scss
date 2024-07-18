@@ -1,7 +1,12 @@
 .container {
-  padding: 10vh 5vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   background-color: #EDE8E3;
-  height: 80vh;
+  height: 84vh;
+  justify-content: flex-end;
+  padding-top: 10vh;
+  margin-bottom: 30px;
 }
 
 .welcome {
@@ -28,7 +33,6 @@ span {
 }
 
 .card-deck {
-  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -37,8 +41,37 @@ span {
   justify-content: space-between;
 }
 
-//.card {
-//  flex: 0 0 30%;
-//  margin-bottom: 20px;
-//  border: 1px solid;
-//}
+.row {
+  width: 88%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 3vw 3vh 0;
+}
+
+.btn-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #142D4A;
+  cursor: pointer;
+  width: 15vw;
+  height: 8vh;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 1em;
+}
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 50%;
+}

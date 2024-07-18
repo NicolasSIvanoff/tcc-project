@@ -1,0 +1,124 @@
+.quiz-details-container {
+  width: 100%;
+  padding-top: 10vh;
+  border-radius: 8px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.coin-counter {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.coin {
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+.quiz-content {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 20px;
+}
+
+.question-section {
+  flex: 1;
+  padding: 20px;
+}
+
+.answer {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  background-color: #FFFFFF;
+}
+
+.answer.correct {
+  background-color: #142D4A !important;
+  color: white;
+}
+
+.answer.wrong {
+  background-color: #ff4d4d !important;
+  color: white;
+}
+
+.answer .checkmark,
+.answer .letter {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  margin-right: 10px;
+  background-color: #eee;
+  color: #000000;
+}
+
+.content-section {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  width: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+}
+
+.content-section h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.content-image {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.continue-button {
+  background-color: #142D4A;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.continue-button:disabled {
+  background-color: gray;
+  color: lightgray;
+  cursor: not-allowed;
+}
+
+h1, h2, h3 {
+  color: #142D4A;
+}

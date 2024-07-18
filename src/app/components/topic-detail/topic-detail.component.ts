@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TopicDetailService} from "../../services/topic-detail.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {ContentsService} from "../../services/contents.service";
 import {ContentModel} from "../../models/content.model";
 import {Observable} from "rxjs";
@@ -15,22 +15,30 @@ export class TopicDetailComponent implements OnInit {
   public idTopic!: string | null;
   public topicDetail: ContentModel | undefined ;
 
-  constructor(public serviceContent: ContentsService, private route: ActivatedRoute) { }
+  constructor(public serviceContent: ContentsService,   private route: ActivatedRoute,
+              private router: Router, ) { }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.idTopic = params.get('id');
-      this.getTopicDetail(parseInt(this.idTopic!));
+      if (this.idTopic) {
+        this.getTopicDetail(parseInt(this.idTopic));
+      }
     });
   }
 
-  public getTopicDetail(id:number){
-  this.serviceContent.getContentById(id).subscribe((content:ContentModel)=>{
-    this.topicDetail = content;
-    })
+  public getTopicDetail(id: number): void {
+    this.serviceContent.getContentById(id).subscribe((content: ContentModel) => {
+      this.topicDetail = content;
+    });
   }
 
-  public goBack(){
+  public goBack(): void {
     window.history.back();
+  }
+
+  public nextTopic(): void {
+    const nextId = (parseInt(this.idTopic!) + 1).toString();
+    this.router.navigate(['/details/', nextId]);
   }
 }

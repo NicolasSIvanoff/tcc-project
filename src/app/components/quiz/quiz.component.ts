@@ -45,14 +45,19 @@ export class QuizComponent {
 
   public onSelectOption(option: string) {
     this.selectedOption = option;
-    console.log(this.selectedOption)
   }
-
+  public redirectTo(route: string): void {
+    window.location.href = route;
+  }
   public onNextQuestion() {
     if (this.currentQuestionIndex < this.questions.length - 1) {
       this.currentQuestionIndex++;
       this.selectedOption = '';
       this.updateProgress();
+    }
+    else {
+      this.redirectTo('quizFinalization');
+
     }
   }
 

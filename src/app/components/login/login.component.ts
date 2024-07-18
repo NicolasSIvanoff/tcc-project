@@ -17,7 +17,9 @@ export class LoginComponent implements OnInit {
  public isOpenModal: boolean = false;
  public textModal!: string;
 
-  constructor( private createUserService: CreateUserService, private loginService: LoginService ) { }
+  constructor( private createUserService: CreateUserService,
+               private loginService: LoginService)
+  { }
 
   ngOnInit(): void {
     this.createForms();
@@ -34,25 +36,50 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', [Validators.required])
     });
     this.formLogin = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email]),
+      name: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
   }
 
   public validateLogin(): void {
-    this.formLogin.valid ? this.loginService.userLogin(this.formLogin.value) : this.openModal();
+   if(this.formLogin.valid) {
+      this.loginService.userLogin(this.formLogin.value).subscribe({
+        next: (data: any) => {
+          if (data.token) {
+            this.textModal = 'Login realizado com sucesso!';
+            localStorage.setItem('token', data.token);
+            this.openModal();
+            window.location.href = 'home';
+          }
+        },
+        error: (error: any) => {
+          this.textModal = 'Erro ao efetuar login: ' + error;
+          this.openModal();
+        }
+      });
+   }
   }
 
   public validateNewUser(): void {
-    this.formNewAccount.valid ? this.createUserService.createUser(this.formNewAccount.value) : this.openModal();
+    if (this.formNewAccount.valid) {
+      this.createUserService.createUser(this.formNewAccount.value).subscribe({
+        next: (data: any) => {
+          this.textModal = 'Usuário criado com sucesso!';
+          this.openModal();
+          this.formNewAccount.clearValidators();
+        },
+        error: (error: any) => {
+          this.textModal = 'Erro ao criar usuário: ' + error;
+          this.openModal();
+        }
+      });
+    } else {
+      this.textModal = 'Parece que ainda faltam campos a serem preenchidos :(';
+      this.openModal();
+    }
   }
   public openModal(): void {
-    if (this.formLogin.valid || this.formNewAccount.valid ) {
-      this.textModal = 'Aguarde um momento! Estamos realizando seu login...'
-    } else {
-      this.isOpenModal = true;
-      this.textModal = 'Parece que ainda faltam campos a serem preenchidos :('
-    }
+    this.isOpenModal = true;
   }
 
   public closeModal(): void {
