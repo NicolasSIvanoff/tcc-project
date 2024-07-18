@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-select-quiz',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrl: './select-quiz.component.scss'
 })
 export class SelectQuizComponent {
+
+  constructor() {
+  }
+
+
+  public redirectForQuiz(){
+   window.parent.location.href = '/quiz';
+  }
 
 }

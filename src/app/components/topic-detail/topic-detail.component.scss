@@ -60,3 +60,11 @@ pre {
   border-radius: 10px;
   font-size: 1em;
 }
+
+.btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 50%;
+}

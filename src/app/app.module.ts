@@ -31,6 +31,8 @@ import { QuizComponent } from './components/quiz/quiz.component';
 import { MatProgressBar, MatProgressBarModule } from "@angular/material/progress-bar";
 import { QuizFinalizationComponent } from './components/quiz-finalization/quiz-finalization.component';
 import { QuizDetailsComponent } from './components/quiz-details/quiz-details.component';
+import { YourProgressComponent } from './components/your-progress/your-progress.component';
+import { ReportsComponent } from './components/reports/reports.component';
 import { SelectQuizComponent } from './components/select-quiz/select-quiz.component';
 
 @NgModule({
@@ -49,6 +51,8 @@ import { SelectQuizComponent } from './components/select-quiz/select-quiz.compon
     QuizComponent,
     QuizFinalizationComponent,
     QuizDetailsComponent,
+    YourProgressComponent,
+    ReportsComponent,
     SelectQuizComponent,
   ],
   imports: [
