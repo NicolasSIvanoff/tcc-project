@@ -28,7 +28,7 @@
 .first-text {
   display: flex;
   width: 90%;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .quiz-content h1 {
@@ -104,5 +104,10 @@
   cursor: pointer;
   width: 45px;
   height: 45px;
+}
+
+.score {
+  font-size: 1em;
+  font-weight: bold;
 }
 

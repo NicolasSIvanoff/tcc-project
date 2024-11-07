@@ -3,9 +3,8 @@
   align-items: center;
   flex-direction: column;
   background-color: #EDE8E3;
-  height: 84vh;
-  justify-content: flex-end;
-  padding-top: 10vh;
+  height: 100%;
+  padding-top: 12vh;
   margin-bottom: 30px;
 }
 
@@ -46,13 +45,14 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left: 50px;
 }
 
 .footer {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  padding: 0 3vw 3vh 0;
+  padding: 0 4vw 3vh 0;
 }
 
 .btn-list {

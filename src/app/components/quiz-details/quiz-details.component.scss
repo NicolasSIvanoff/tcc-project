@@ -70,7 +70,7 @@ h1 {
 .answer .checkmark,
 .answer .letter {
   border-radius: 50%;
-  width: 40px;
+  min-width: 40px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -87,7 +87,7 @@ h1 {
   text-align: left;
   width: 300px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: flex-end;
   flex-direction: column;
 }

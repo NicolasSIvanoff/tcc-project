@@ -109,6 +109,7 @@ span {
 
 .base-card:hover .text {
   -webkit-line-clamp: unset;
+  line-clamp: unset;
   max-height: none;
   white-space: normal;
 }

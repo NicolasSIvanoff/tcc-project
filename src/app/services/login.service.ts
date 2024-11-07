@@ -11,7 +11,7 @@ export class LoginService {
 
   public userLogin(user: any): any {
     console.log(user)
-    return this.http.post('https://localhost:7184/login', user).pipe(
+    return this.http.post('https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/login', user).pipe(
       catchError(this.handleError)
     )
   }

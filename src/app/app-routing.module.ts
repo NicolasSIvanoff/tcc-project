@@ -13,20 +13,21 @@ import {YourProgressComponent} from "./components/your-progress/your-progress.co
 import {ReportsComponent} from "./components/reports/reports.component";
 import {SelectQuizComponent} from "./components/select-quiz/select-quiz.component";
 import {QuizComponent} from "./components/quiz/quiz.component";
+import {authGuard} from "./shared/guard/auth-guard";
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'waitForLoading', component: WaitForLoadingComponent },
-  { path: 'home', component: HomeComponent },
-  { path: 'details/:id', component: TopicDetailComponent },
-  { path: 'topics', component: ListTopicsComponent },
-  { path: 'startQuiz', component:  BeforeQuizComponent },
-  { path: 'selectQuiz', component:  SelectQuizComponent },
-  { path: 'quizFinalization', component:  QuizFinalizationComponent },
-  { path: 'quizDetails', component:  QuizDetailsComponent },
-  { path: 'quiz', component:  QuizComponent },
-  { path: 'seuProgresso', component: YourProgressComponent },
-  { path: 'relatorios', component: ReportsComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
+  { path: 'details/:id', component: TopicDetailComponent, canActivate: [authGuard] },
+  { path: 'topics', component: ListTopicsComponent, canActivate: [authGuard] },
+  { path: 'startQuiz', component:  BeforeQuizComponent, canActivate: [authGuard] },
+  { path: 'selectQuiz', component:  SelectQuizComponent, canActivate: [authGuard] },
+  { path: 'quizFinalization', component:  QuizFinalizationComponent, canActivate: [authGuard] },
+  { path: 'quizDetails', component:  QuizDetailsComponent, canActivate: [authGuard] },
+  { path: 'quiz', component:  QuizComponent, canActivate: [authGuard] },
+  { path: 'seuProgresso', component: YourProgressComponent, canActivate: [authGuard] },
+  { path: 'relatorios', component: ReportsComponent, canActivate: [authGuard] },
   { path: '**', component: ErrorComponent },
 
 ];

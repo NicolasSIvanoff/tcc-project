@@ -6,7 +6,7 @@ import {catchError, Observable, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class CreateUserService {
-  private apiUrl = 'https://localhost:7184/register';
+  private apiUrl = 'https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/register';
 
   constructor( private http: HttpClient) { }
 

@@ -25,3 +25,4 @@ export class QuizDetailsComponent implements OnInit{
     window.location.href = '/home';
   }
 }
+

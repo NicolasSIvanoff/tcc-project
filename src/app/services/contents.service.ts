@@ -18,14 +18,18 @@ export class ContentsService {
   }
   public getContents(): Observable<ContentModel[]>{
     this.createHeader();
-   return this.http.get<ContentModel[]>('https://localhost:7184/Conteudos', {headers: this.createHeader()});
+   return this.http.get<ContentModel[]>('https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Conteudos', {headers: this.createHeader()});
   }
 
   public getContentById(id: number): Observable<ContentModel>{
-    return this.http.get<ContentModel>(`https://localhost:7184/Conteudos/${id}` , {headers: this.createHeader()});
+    return this.http.get<ContentModel>(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Conteudos/${id}` , {headers: this.createHeader()});
   }
 
   public getAllContents(): Observable<ContentModel[]>{
-    return this.http.get<ContentModel[]>('https://localhost:7184/Conteudos/getAll' , {headers: this.createHeader()});
+    return this.http.get<ContentModel[]>('https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Conteudos/getAll' , {headers: this.createHeader()});
+  }
+
+  public getContentsVisited(): Observable<ContentModel[]>{
+    return this.http.get<ContentModel[]>('https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Conteudos/conteudos-visitados', {headers: this.createHeader()});
   }
 }

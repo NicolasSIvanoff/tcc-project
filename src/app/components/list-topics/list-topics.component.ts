@@ -17,4 +17,8 @@ export class ListTopicsComponent implements OnInit {
 
     })
   }
+
+  public redirectForHome(): void {
+    window.location.href = 'home';
+  }
 }

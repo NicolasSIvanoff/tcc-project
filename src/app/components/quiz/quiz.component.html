@@ -1,22 +1,25 @@
-<div class="quiz-container">
-  <div class="first-text">
-    <span>200</span>
-    <span>Desafio Quiz</span>
-    <div class="exit" (click)="redirectTo('/home')"> <mat-icon>clear</mat-icon></div>
-  </div>
-  <div class="quiz-content">
-
-    <h2>O que é a taxa selic?</h2>
-    <app-quiz-option *ngFor="let option of questions[currentQuestionIndex].options"
-                     [letter]="option.letter"
-                     [question]="option.question"
-                     [isSelected]="option.letter === selectedOption"
-                     (click)="onSelectOption(option.letter)">
-    </app-quiz-option>
-  </div>
-  <div class="quiz-footer">
-    <mat-progress-bar class="progress-bar" mode="determinate" [value]="progress"></mat-progress-bar>
-    <div class="progress-text">{{currentQuestionIndex + 1}}/{{questions.length}}</div>
-    <button class="continue-button" [disabled]="selectedOption === ''" (click)="onNextQuestion()">CONTINUE</button>
+<div *ngIf="quiz && quiz.perguntas.length > 0" class="quiz-container">
+    <div class="first-text">
+      <div class="exit" (click)="redirectTo('/home')">
+        <mat-icon>clear</mat-icon>
+      </div>
     </div>
+    <div class="quiz-content">
+      <h2>{{ quiz.perguntas[currentQuestionIndex].enunciado }}</h2>
+      <app-quiz-option *ngFor="let option of quiz.perguntas[currentQuestionIndex].opcoes"
+                       [letter]="option.letra"
+                       [question]="option.questao"
+                       [isSelected]="option.letra === selectedOption"
+                       (click)="onSelectOption(option.letra)">
+      </app-quiz-option>
+    </div>
+    <div class="quiz-footer">
+      <mat-progress-bar class="progress-bar" mode="determinate" [value]="progress"></mat-progress-bar>
+      <div class="progress-text">{{currentQuestionIndex + 1}}/{{ quiz.perguntas.length }}</div>
+      <div class="score">Pontuação: {{ score }}</div> <!-- Adiciona o campo de pontuação -->
+      <button class="continue-button" [disabled]="selectedOption === ''" (click)="onNextQuestion()">CONTINUE</button>
+    </div>
+  </div>
+<div *ngIf="!quiz || quiz.perguntas.length === 0">
+  <p>Carregando quiz...</p>
 </div>

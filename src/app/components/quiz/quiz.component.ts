@@ -1,67 +1,61 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { QuizService } from '../../services/quiz.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
-  styleUrl: './quiz.component.scss'
+  styleUrls: ['./quiz.component.scss']
 })
-export class QuizComponent {
-  questions = [
-    { text: "O que é a taxa selic?",
-      options: [
-        {letter: "A", question: "É a taxa básica de juros da economia, que influencia outras taxas de juros do país"},
-        {letter: "B", question: "É uma taxa de juros utilizada nos empréstimos entre os bancos"},
-        {letter: "C", question: "É uma taxa sobre o lucro líquido das companhias de capital aberto"}
-      ] },
-    { text: "O que é o IPCA?",
-      options: [
-        {letter: "A", question: "Índice de Preços ao Consumidor Amplo, que mede a inflação no país"},
-        {letter: "B", question: "Índice de Preços ao Consumidor Ampliado, que mede a inflação no país"},
-        {letter: "C", question: "Índice de Preços ao Consumidor Anual, que mede a inflação no país"}
-      ] },
-    { text: "O que é o CDI?",
-      options: [
-        {letter: "A", question: "Certificado de Depósito Interbancário, que é uma taxa de juros utilizada nos empréstimos entre os bancos"},
-        {letter: "B", question: "Certificado de Depósito Interbancário, que é uma taxa de juros utilizada nos empréstimos entre os bancos"},
-        {letter: "C", question: "Certificado de Depósito Interbancário, que é uma taxa de juros utilizada nos empréstimos entre os bancos"}
-      ] },
-    { text: "O que é o IGP-M?",
-      options: [
-        {letter: "A", question: "Índice Geral de Preços do Mercado, que mede a inflação no país"},
-        {letter: "B", question: "Índice Geral de Preços do Mercado, que mede a inflação no país"},
-        {letter: "C", question: "Índice Geral de Preços do Mercado, que mede a inflação no país"}
-      ] },
-    { text: "O que é o INPC?",
-      options: [
-        {letter: "A", question: "Índice Nacional de Preços ao Consumidor, que mede a inflação no país"},
-        {letter: "B", question: "Índice Nacional de Preços ao Consumidor, que mede a inflação no país"},
-        {letter: "C", question: "Índice Nacional de Preços ao Consumidor, que mede a inflação no país"}
-      ] }
-  ];
+export class QuizComponent implements OnInit {
+  public quiz: any;
+  public currentQuestionIndex = 0;
+  public selectedOption: string = '';
+  public progress = 20;
+  public score = 0;
 
-  currentQuestionIndex = 0;
-  selectedOption: string = '';
-  progress = 20;
+  constructor(private service: QuizService, private router: Router) {}
+
+  ngOnInit(): void {
+    this.getQuiz();
+  }
+
+  public getQuiz() {
+    this.service.getQuiz().subscribe((data: any) => {
+      this.quiz = data;
+    });
+  }
 
   public onSelectOption(option: string) {
     this.selectedOption = option;
   }
-  public redirectTo(route: string): void {
-    window.location.href = route;
-  }
-  public onNextQuestion() {
-    if (this.currentQuestionIndex < this.questions.length - 1) {
-      this.currentQuestionIndex++;
-      this.selectedOption = '';
-      this.updateProgress();
-    }
-    else {
-      this.redirectTo('quizFinalization');
 
+  public redirectTo(route: string, state?: any): void {
+    this.router.navigate([route], { state });
+  }
+
+  public onNextQuestion() {
+    if (this.quiz && this.quiz.perguntas && this.quiz.perguntas.length > 0) {
+      const currentQuestion = this.quiz.perguntas[this.currentQuestionIndex];
+      if (this.selectedOption === currentQuestion.respostaCorreta) {
+        this.score += currentQuestion.pontuacao;
+      }
+
+      if (this.currentQuestionIndex < this.quiz.perguntas.length - 1) {
+        this.currentQuestionIndex++;
+        this.selectedOption = '';
+        this.updateProgress();
+      } else {
+        const totalScore = this.quiz.perguntas.reduce((total: any, question: { pontuacao: any; }) => total + question.pontuacao, 0);
+        this.service.setScore(this.score, totalScore);
+        this.redirectTo('quizFinalization');
+      }
     }
   }
 
   public updateProgress() {
-    this.progress = ((this.currentQuestionIndex + 1) / this.questions.length) * 100;
+    if (this.quiz && this.quiz.perguntas && this.quiz.perguntas.length > 0) {
+      this.progress = ((this.currentQuestionIndex + 1) / this.quiz.perguntas.length) * 100;
+    }
   }
 }
