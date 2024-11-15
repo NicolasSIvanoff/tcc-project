@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContentModel } from "../../models/content.model";
 
 @Component({
@@ -6,10 +6,12 @@ import { ContentModel } from "../../models/content.model";
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss'
 })
-export class CardComponent {
+export class CardComponent implements OnInit {
   @Input() public contentData?: ContentModel;
 
 
+  ngOnInit(): void {
+  }
   public redirectForDetails(id?: string): void {
     window.location.href = `/details/${id}`;
   }

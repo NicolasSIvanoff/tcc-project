@@ -6,6 +6,9 @@
   <div class="result-image">
     <img src="assets/finalization.png" alt="Checkmark" width="400" height="400">
   </div>
-  <p>Você acertou {{ (score / totalScore) * 100 | number: '1.0-2' }}% do questionário! Parabéns!</p>
-  <button class="view-mistakes-button" (click)="redirectTo()">Ver o que errei</button>
+  <p>Você acertou {{totalScore}} de 5 questões do questionário! Parabéns!</p>
+  <button class="view-mistakes-button" (click)="redirectTo()">
+   <span *ngIf="totalScore !== 5"> Ver o que errei</span>
+    <span *ngIf="totalScore === 5"> Voltar</span>
+  </button>
 </div>

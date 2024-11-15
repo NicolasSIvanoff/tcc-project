@@ -1,28 +1,37 @@
 <div class="quiz-details-container">
   <div class="coin-counter">
-    <span class="coin">200</span>
+    <span class="coin">{{ resultQuiz.pontuacao }}</span>
   </div>
   <h1>Desafio Quiz</h1>
+
   <div class="quiz-content">
-    <div class="question-section">
-      <h2>O que é uma ação?</h2>
-      <div class="answer" [class.correct]="true">
-        <span class="checkmark">✔</span> Uma ação representa uma fração do capital social de uma empresa, conferindo a seu titular participação nos lucros e nos riscos do negócio
-      </div>
-      <div class="answer" [class.wrong]="true">
-        <span class="letter">B</span> Uma ação é um título de renda fixa que paga juros ao longo do tempo
-      </div>
-      <div class="answer">
-        <span class="letter">C</span> Uma ação é um título de dívida emitido por empresas para financiar suas operações
-      </div>
+    <div *ngIf="resultQuiz.perguntasErradas.length > 0" class="question-section">
+      <h2>{{ resultQuiz.perguntasErradas[currentQuestionIndex].enunciado }}</h2>
+      <div *ngFor="let opcao of resultQuiz.perguntasErradas[currentQuestionIndex].opcoes"
+     class="answer"
+     [class.correct]="opcao.letra === resultQuiz.perguntasErradas[currentQuestionIndex].respostaCorreta"
+     [class.wrong]="opcao.letra !== resultQuiz.perguntasErradas[currentQuestionIndex].respostaCorreta && opcao.letra === resultQuiz.perguntasErradas[currentQuestionIndex].respostas[0]?.respostaUsuario">
+
+  <span  class="letter" *ngIf="opcao.letra === resultQuiz.perguntasErradas[currentQuestionIndex].respostaCorreta">✔</span>
+  <span  class="letter" *ngIf="opcao.letra !== resultQuiz.perguntasErradas[currentQuestionIndex].respostaCorreta && opcao.letra === resultQuiz.perguntasErradas[currentQuestionIndex].respostas[0]?.respostaUsuario">✘</span>
+
+  <span *ngIf="opcao.letra !== resultQuiz.perguntasErradas[currentQuestionIndex].respostaCorreta
+                && opcao.letra !== resultQuiz.perguntasErradas[currentQuestionIndex].respostas[0]?.respostaUsuario"
+        class="letter">
+    {{ opcao.letra }}
+  </span>
+  {{ opcao.questao }}
+</div>
     </div>
+
     <div class="content-section">
       <h3>Veja este conteúdo para entender melhor sobre o assunto</h3>
       <app-card [contentData]="contents"></app-card>
-
-<!--      <img src="assets/investimento.png" alt="O que é a taxa selic?" class="content-image">-->
-<!--      <p>O que é a taxa selic?</p>-->
     </div>
   </div>
-  <button class="continue-button" (click)="redirectTo()">Voltar</button>
+  <div class="navigation-buttons">
+    <button *ngIf="currentQuestionIndex > 0" (click)="prevQuestion()">Anterior</button>
+    <button *ngIf="currentQuestionIndex < resultQuiz.perguntasErradas.length - 1" (click)="nextQuestion()">Próxima</button>
+    <button class="continue-button" (click)="redirectTo()">Voltar</button>
+  </div>
 </div>

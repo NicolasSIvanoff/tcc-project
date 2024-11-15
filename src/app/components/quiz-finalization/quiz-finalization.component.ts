@@ -11,17 +11,18 @@ export class QuizFinalizationComponent {
 
   public score: number = 0;
   public totalScore: number = 0;
+  public resultQuiz: any;
 
-  constructor(private router: Router, private quizService: QuizService) {}
+  constructor(private router: Router) {}
 
-  ngOnInit(): void {
-    this.quizService.score$.subscribe(({ score, totalScore }) => {
-      this.score = score;
-      this.totalScore = totalScore;
-    });
+  ngOnInit() {
+    this.resultQuiz = history.state.state;
+    this.score = this.resultQuiz.pontuacao;
+    this.totalScore = this.resultQuiz.pontuacao / 40;
   }
 
   public redirectTo(): void {
-    this.router.navigate(['/quizDetails']);
+    this.router.navigate(['/quizDetails'], { state: this.resultQuiz });
   }
+
 }
