@@ -16,7 +16,7 @@
     <div class="quiz-footer">
       <mat-progress-bar class="progress-bar" mode="determinate" [value]="progress"></mat-progress-bar>
       <div class="progress-text">{{currentQuestionIndex + 1}}/{{ quiz.perguntas.length }}</div>
-      <div class="score">Pontuação: {{ score }}</div> <!-- Adiciona o campo de pontuação -->
+      <div class="score">Pontuação: {{ score }}</div>
       <button class="continue-button" [disabled]="selectedOption === ''" (click)="onNextQuestion()">CONTINUE</button>
     </div>
   </div>

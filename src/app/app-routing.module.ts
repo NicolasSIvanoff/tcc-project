@@ -14,6 +14,7 @@ import {ReportsComponent} from "./components/reports/reports.component";
 import {SelectQuizComponent} from "./components/select-quiz/select-quiz.component";
 import {QuizComponent} from "./components/quiz/quiz.component";
 import {authGuard} from "./shared/guard/auth-guard";
+import { ModalComponent } from './shared/modal/modal.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'quiz', component:  QuizComponent, canActivate: [authGuard] },
   { path: 'seuProgresso', component: YourProgressComponent, canActivate: [authGuard] },
   { path: 'relatorios', component: ReportsComponent, canActivate: [authGuard] },
+  { path: 'modal', component: ModalComponent },
   { path: '**', component: ErrorComponent },
 
 ];

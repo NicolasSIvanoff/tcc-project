@@ -68,7 +68,5 @@
     </div>
   </div>
 </div>
-<app-modal [isOpen]="isOpenModal" (isOpenChange)="closeModal()">
-  <h2>Login</h2>
-  <p>{{ textModal }}</p>
+<app-modal [isOpen]="isOpenModal" [textModal]="textModal" [isLoading]="isLoading" (isOpenChange)="closeModal()">
 </app-modal>

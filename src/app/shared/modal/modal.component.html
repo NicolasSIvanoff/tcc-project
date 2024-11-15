@@ -1,6 +1,20 @@
-<div *ngIf="isOpen" class="modal-overlay">
-  <div class="modal-content">
-    <ng-content></ng-content>
-    <button (click)="closeModal()">Fechar</button>
+<div class="modal-container" *ngIf="isOpen" isOpen>
+  <div class="container">
+      <div [ngClass]="{ 'login-box': isLoading, 'others': !isLoading }">
+      <div class="text-container">
+        <span *ngIf="isLoading; else defaultContent">Aguarde um momento enquanto efetuamos seu login :)</span>
+        <button (click)="closeModal()">Voltar</button>
+        <div class="spinner" *ngIf="isLoading"></div>
+      </div>
+      <div class="image-container" *ngIf="!isLoading">
+        <img src="/assets/frame.png" alt="Login Image" height="235" width="201" />
+      </div>
+    </div>
   </div>
 </div>
+
+<ng-template #defaultContent>
+  <div class="text-container">
+    <span>{{ textModal }}</span>
+  </div>
+</ng-template>

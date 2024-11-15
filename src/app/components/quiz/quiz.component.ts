@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../services/quiz.service';
 import { Router } from '@angular/router';
+import { QuizOptionComponent } from "../quiz-option/quiz-option.component";
 
 @Component({
   selector: 'app-quiz',
