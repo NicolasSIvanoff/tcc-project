@@ -29,6 +29,10 @@ export class QuizService {
   }
 
   public getYourQuizResults(): Observable<any> {
-    return this.http.get(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Quizzes/quizzes-respondidos`);
+    const token = localStorage.getItem('token');
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${token}`
+    });
+    return this.http.get(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Quizzes/quizzes-respondidos`, { headers });
   }
 }
