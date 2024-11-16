@@ -5,10 +5,16 @@
     </div>
     <div class="container">
       <div class="container-cards">
-        <div class="base-card" >
-          <img class="image" src="../../../assets/quiz1.png" alt="img-text">
-          <p class="text">Quiz 1</p>
-          <p class="text">Quantidade de acertos: 4</p>
+        <span class="initial-text" *ngIf="!quizzes.length"> Você não realizou nenhum quiz ainda :( </span>
+        <div class="base-card" *ngFor="let quiz of quizzes">
+          <img class="image" *ngIf="quiz.idQuiz == 1" src="../../../assets/quiz1.png" alt="img-text">
+          <img class="image" *ngIf="quiz.idQuiz == 2" src="../../../assets/quiz2.png" alt="img-text">
+          <img class="image" *ngIf="quiz.idQuiz == 3" src="../../../assets/quiz3.png" alt="img-text">
+          <p class="text">Quiz {{quiz.idQuiz}}</p>
+          <p class="text">Quantidade de questões: 5</p>
+          <p class="text">Pontuação obtida: {{quiz.pontuacao}}</p>
+          <p class="text">Pontuação máxima: 200</p>
+          <p class="text">Data de realização: {{quiz.data | date:'dd/MM/yyyy'}}</p>
         </div>
       </div>
     </div>

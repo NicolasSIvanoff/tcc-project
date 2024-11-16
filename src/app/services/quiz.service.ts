@@ -27,4 +27,8 @@ export class QuizService {
     });
     return this.http.post(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Conteudos/salvarResultadoQuiz`, quizResult, { headers });
   }
+
+  public getYourQuizResults(): Observable<any> {
+    return this.http.get(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Quizzes/quizzes-respondidos`);
+  }
 }
