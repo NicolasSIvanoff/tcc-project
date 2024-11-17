@@ -17,8 +17,8 @@ export class QuizComponent implements OnInit {
   constructor(private service: QuizService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id'); // Captura o id da rota
-    this.getQuiz(id); // Chama a função passando o id
+    const id = this.route.snapshot.paramMap.get('id');
+    this.getQuiz(id);
   }
 
   public getQuiz(id: string | null) {

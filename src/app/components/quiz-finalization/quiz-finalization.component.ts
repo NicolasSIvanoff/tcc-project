@@ -22,7 +22,12 @@ export class QuizFinalizationComponent {
   }
 
   public redirectTo(): void {
-    this.router.navigate(['/quizDetails'], { state: this.resultQuiz });
+    if(this.totalScore === 5){
+      this.router.navigate(['/home']);
+    }
+    else {
+      this.router.navigate(['/quizDetails'], { state: this.resultQuiz });
+    }
   }
 
 }
