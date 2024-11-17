@@ -18,6 +18,10 @@ export class TopicDetailComponent implements OnInit {
   constructor(public serviceContent: ContentsService,   private route: ActivatedRoute,
               private router: Router, ) { }
 
+  isNextTopicAvailable(): boolean {
+  return !!this.topicDetail && typeof this.topicDetail.id === 'number' && this.topicDetail.id < 15;
+  }
+
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.idTopic = params.get('id');
