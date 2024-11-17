@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'selectQuiz', component:  SelectQuizComponent, canActivate: [authGuard] },
   { path: 'quizFinalization', component:  QuizFinalizationComponent, canActivate: [authGuard] },
   { path: 'quizDetails', component:  QuizDetailsComponent, canActivate: [authGuard] },
-  { path: 'quiz', component:  QuizComponent, canActivate: [authGuard] },
+  { path: 'quiz/:id', component:  QuizComponent, canActivate: [authGuard] },
   { path: 'seuProgresso', component: YourProgressComponent, canActivate: [authGuard] },
   { path: 'relatorios', component: ReportsComponent, canActivate: [authGuard] },
   { path: 'modal', component: ModalComponent },

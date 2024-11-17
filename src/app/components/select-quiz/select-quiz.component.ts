@@ -10,9 +10,7 @@ export class SelectQuizComponent {
   constructor() {
   }
 
-
-  public redirectForQuiz(){
-   window.parent.location.href = '/quiz';
+  public redirectForQuiz(id: number){
+   window.parent.location.href = '/quiz/' + id;
   }
-
 }

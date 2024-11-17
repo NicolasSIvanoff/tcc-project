@@ -16,8 +16,8 @@ export class QuizService {
     this.scoreSubject.next({ score, totalScore });
   }
 
-  public getQuiz(): Observable<QuizModel> {
-    return this.http.get<QuizModel>('https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Quizzes/1');
+  public getQuiz(id: string): Observable<QuizModel> {
+    return this.http.get<QuizModel>(`https://tcc-backend-cwcyaqfqamdhc0br.brazilsouth-01.azurewebsites.net/Quizzes/${id}`);
   }
 
   public saveQuizResults(quizResult: any): Observable<any> {

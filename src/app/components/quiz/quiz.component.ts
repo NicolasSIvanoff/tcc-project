@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { QuizService } from '../../services/quiz.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -14,18 +14,22 @@ export class QuizComponent implements OnInit {
   public progress = 0;
   public score = 0;
   public respostas: Array<any> = [];
-  constructor(private service: QuizService, private router: Router) {}
+  constructor(private service: QuizService, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getQuiz();
+    const id = this.route.snapshot.paramMap.get('id'); // Captura o id da rota
+    this.getQuiz(id); // Chama a função passando o id
   }
 
-  public getQuiz() {
-    this.service.getQuiz().subscribe((data: any) => {
-      this.quiz = data;
-      this.updateProgress();
-    });
+  public getQuiz(id: string | null) {
+    if (id) {
+      this.service.getQuiz(id).subscribe((data: any) => {
+        this.quiz = data;
+        this.updateProgress();
+      });
+    }
   }
+
 
   public onSelectOption(option: string) {
     this.selectedOption = option;
